@@ -1,6 +1,10 @@
 # FiLog changelog
 ## 0.1 series
 
+### Upcoming
+
+- Messages are now stored serialized by default in MongoDB too, not just Syslog (#23).
+
 ### 0.1.13
 
 * Updated dependencies
