@@ -22,9 +22,9 @@ function testStringifyMessage() {
     const o = new Printable(value);
 
     const expectations = [
-      [{message: "foo"}, "foo"],
-      [{message: 25}, "25"],
-      [{message: o}, JSON.stringify(value)],
+      [{ message: "foo" }, "foo"],
+      [{ message: 25 }, "25"],
+      [{ message: o }, JSON.stringify(value)],
       [{}, "{}"],
       [[], "[]"],
       ["foo", "foo"]

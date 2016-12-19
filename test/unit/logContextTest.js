@@ -9,6 +9,7 @@ function testImmutableContext() {
   "use strict";
   const strategy = {
     customizeLogger: () => [],
+    customizeSenders: () => [],
     selectSenders: () => []
   };
   it("should not modify context in log() calls", function () {
@@ -54,7 +55,7 @@ function testObjectifyContext() {
   });
 
   it("should not modify existing POJOs", () => {
-    const raw = { a: "b" };
+    const raw = {a: "b"};
     const actual = objectifyContext(raw);
     assert.strictEqual(actual, raw);
   });

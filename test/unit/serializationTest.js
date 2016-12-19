@@ -37,7 +37,7 @@ function testSerializeDeepObject() {
     const syslog = makeSyslog();
     const spy = sinon.spy(syslog, 'log');
     // test with default options
-    const sender1 = new SyslogSender('test-sender', {}, LOCAL0, syslog);
+    const sender1 = new SyslogSender([], 'test-sender', {}, LOCAL0, syslog);
     sender1.send(logLevelWarn, 'hello', deepContext());
     assert.equal(true, spy.calledOnce);
     assert.equal(false, spy.calledWithMatch(logLevelWarn, /world/));
@@ -48,14 +48,13 @@ function testSerializeDeepObject() {
     const syslog = makeSyslog();
     const spy = sinon.spy(syslog, 'log');
     // test with custom options (depth = 10)
-    const sender2 = new SyslogSender('test-sender', {}, LOCAL0, syslog, { depth: 10 });
+    const sender2 = new SyslogSender([], 'test-sender', {}, LOCAL0, syslog, { depth: 10 });
     sender2.send(logLevelWarn, 'hello', deepContext());
     assert.equal(true, spy.calledOnce);
     assert.equal(true, spy.calledWithMatch(logLevelWarn, /world/));
     assert.equal(false, spy.calledWithMatch(logLevelWarn, /\[Object\]/));
   });
 }
-
 export {
   testSerializeDeepObject
 };

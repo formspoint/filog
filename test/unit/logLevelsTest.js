@@ -8,6 +8,7 @@ function testLogLevels() {
   "use strict";
   const strategy = {
     customizeLogger: () => [],
+    customizeSenders: () => [],
     selectSenders: () => []
   };
   it("log() should throw on non-integer levels", function () {
