@@ -71,7 +71,7 @@
     "compile": "rm -r lib/* ; npm i && npm run test-compile",
     "cover": "npm run test-compile && time -p istanbul cover node_modules/.bin/_mocha -- --compilers js:babel-core/register test/**/*",
     "doc": "rm -fr out ; jsdoc -c jsdoc.json",
-    "test": "npm run test-compile && time -p mocha --compilers js:babel-core/register test/unit/* -w",
+    "test": "npm run test-compile && time -p mocha --compilers js:babel-core/register test/** -w",
     "test-compile": "time -p babel --presets es2015,stage-0 -d lib/ src/",
     "test-integration": "npm run test-compile && time -p mocha --compilers js:babel-core/register test/integration",
     "test-unit": "npm run test-compile && time -p mocha --compilers js:babel-core/register test/unit"

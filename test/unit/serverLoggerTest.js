@@ -8,6 +8,7 @@ import ServerLogger from "../../src/ServerLogger";
 const testConstructor = function () {
   const strategy = {
     customizeLogger: () => [],
+    customizeSenders: () => [],
     selectSenders: () => []
   };
 
@@ -18,7 +19,7 @@ const testConstructor = function () {
   });
 
   it("Should not add unknown parameters", function () {
-    const logger = new ServerLogger(strategy, null, { foo: "bar" });
+    const logger = new ServerLogger(strategy, null, [], { foo: "bar" });
     assert.typeOf(logger.foo, "undefined", "Unknown argument foo is not set on instance");
   });
 
@@ -27,7 +28,7 @@ const testConstructor = function () {
       logRequestHeaders: "foo",
       servePath: 42
     };
-    const logger = new ServerLogger(strategy, null, options);
+    const logger = new ServerLogger(strategy, null, [], options);
     assert.equal(logger.logRequestHeaders, options.logRequestHeaders, "logRequestHeaders not overwritten");
     assert.equal(logger.servePath, options.servePath, "servePath not overwritten");
   });
